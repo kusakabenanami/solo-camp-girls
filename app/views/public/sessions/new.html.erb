@@ -1,26 +1,83 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class='container my-3'>
+  <div class='row'>
+    <div class="col-3"></div>
+    <div class="col-3">
+      <h4 style="margin-top: 30px; background-color: rgba(128, 128, 128, 0.2); padding-left: 20px; padding-right: 20px; display: inline-block;">
+        ログイン
+      </h4>
     </div>
-  <% end %>
+    <div class="col-6"></div><!-- 空白 -->
+  </div><!-- row -->
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+  <div class='row'>
+    <div class="col-3"></div>
+    <div class="col-3">
+      <p style="margin-top: 30px; background-color: rgba(128, 128, 128, 0.2); padding-left: 20px; padding-right: 20px; display: inline-block; white-space: nowrap;">
+        会員の方はこちらからログイン
+      </p>
+    </div>
+  </div><!-- row -->
+
+  <div class='row'>
+    <div class="col-3"></div>
+    <div class="col-8">
+<%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+  <!--%= render "devise/shared/error_messages", resource: resource %-->
+  <form>
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :email, "メールアドレス" %>
+        </td>
+        <td colspan="2">
+          <%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com", style: "width: 100%;" %></td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :password, "パスワード" %>
+        </td>
+        <td colspan="2">
+          <%= f.password_field :password, autocomplete: "current-password", style: "width: 100%;" %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">
+          <div style="margin-top: 20px;">
+            <%= f.submit "ログイン", class: 'btn btn-sm btn-primary' %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>
 <% end %>
 
-<%= render "public/shared/links" %>
+    </div><!-- col -->
+  </div><!-- row -->
+
+  <div class="row">
+      <p style="margin-top: 50px; margin-left: 300px; background-color: rgba(128, 128, 128, 0.2);">
+        <%= "会員登録がお済でない方" %>
+      </p>
+      </div><!-- row -->
+      <div class="row">
+      <div style="margin-left: 400px;">
+        <%= link_to "こちら", new_customer_registration_path %>　から新規登録してください
+      </div>
+  </div><!-- row -->
+
+  <div class="row">
+      <p style="margin-top: 50px; margin-left: 300px; background-color: rgba(128, 128, 128, 0.2);">
+        <%= "管理者の方はこちらから" %>
+      </p>
+      </div><!-- row -->
+      <div class="row">
+      <div style="margin-left: 400px;">
+        <%= link_to "こちら", admin_session_path %>　からログインしてください
+      </div>
+  </div><!-- row -->
+</div><!-- container -->

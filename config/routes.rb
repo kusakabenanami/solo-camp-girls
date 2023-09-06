@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   root "public/homes#top"
-  
-  # 顧客側
-  devise_for :customers, :controllers => {
+
+  post '/homes/guest_sign_in', to: 'public/homes#guest_sign_in'
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
+  # ユーザー側
+  devise_for :users, :controllers => {
   :sessions => 'public/sessions',
   :passwords => 'public/passwords',
   :registrations => 'public/registrations',
@@ -13,33 +19,11 @@ Rails.application.routes.draw do
   :passwords => 'admin/passwords',
   :registrations => 'admin/registrations',
   }
-  namespace :admin do
-    get "/top" => "homes#top", as: :top
-    resources :orders, only: [:show, :index, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
-    resources :genres, only: [:index, :edit, :create, :update]
-    resources :items, only: [:index, :new, :create, :show, :edit, :update]
-    resources :order_details, only: [:update]
+
+  resources :camps, only: [:new, :create, :index, :show, :edit, :destroy, :update] do
+    resource :favorites, only: [:create, :destroy]
   end
-  namespace :public do
-    get "/about" => "homes#about"
-    get "orders/confirm" => "orders#confirm"
-    get "/orders/confirm" => "orders#confirm"
-    post "/orders/confirm" => "orders#confirm"
-    get "/customers/confirm" => "customers#confirm"
-    patch "/customers/withdrawal" => "customers#withdrawal"
-    get "/customers/mypage" => "customers#show"
-    patch "/customers/mypage" => "customers#update"
-    get "/orders/complete" => "orders#complete"
-    get "/customers/information/edit" => "customers#edit"
-    resources :items, only:[:show, :index]
-    resources :cart_items, only:[:index, :create, :update, :destroy] do
-      collection do
-        delete "destroy_all" => "cart_items#destroy_all"
-      end
-    end
-    resources :orders, only:[:new, :create, :index, :show]
-    resources :addresses, only:[:index, :create, :destroy, :show, :update, :edit]
-  end
+
+  resources :users, only: [:show, :create, :edit, :update, :index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
