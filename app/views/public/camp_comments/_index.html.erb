@@ -1,0 +1,21 @@
+<table>
+  <tbody>
+      <% camp.camp_comments.each do |camp_comment| %>
+      <tr>
+
+        <td>
+          <%= link_to user_path(camp_comment.user) do %>
+            <%= image_tag camp_comment.user.get_profile_image(100,100)  %><br>
+            <%= camp_comment.user.name %>
+          <% end %>
+        </td>
+        <td><%= camp_comment.comment %></td>
+        <td>
+          <% if camp_comment.user == current_user %>
+            <%= link_to "Destroy", camp_camp_comment_path(camp, camp_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

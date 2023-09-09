@@ -1,0 +1,3 @@
+$('#comment-form').html("<%= j(render "camp_comments/form", camp: @camp, camp_comment: @camp_comment_new) %>");
+$('#comment_count').html("<%= @camp.camp_comments.count %>");
+$('#camp-comments').html("<%= j(render "camp_comments/index", camp: @camp) %>");

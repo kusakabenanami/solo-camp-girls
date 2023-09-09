@@ -21,7 +21,7 @@
   <div class='row'>
     <div class="col-3"></div>
     <div class="col-8">
-<%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+<%= form_with model: @user, url: user_session_path, local: true do |f| %>
   <!--%= render "devise/shared/error_messages", resource: resource %-->
   <form>
     <table>
@@ -66,7 +66,7 @@
       </div><!-- row -->
       <div class="row">
       <div style="margin-left: 400px;">
-        <%= link_to "こちら", new_customer_registration_path %>　から新規登録してください
+        <%= link_to "こちら", new_user_registration_path %>　から新規登録してください
       </div>
   </div><!-- row -->
 

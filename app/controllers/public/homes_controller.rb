@@ -1,7 +1,8 @@
 class Public::HomesController < ApplicationController
   def top
+  end
 
-    # render layout: false
+  def about
   end
 
   def guest_sign_in
