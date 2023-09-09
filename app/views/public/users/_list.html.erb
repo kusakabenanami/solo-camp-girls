@@ -12,13 +12,13 @@
       </tr>
     </tbody>
   </table>
-  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary" do %>
+  <%= link_to public_users_information_edit_path(user), class: "btn btn-outline-secondary" do %>
   <i class="fa-solid fa-user-cog"></i>
   <% end %>
 
 
 <h2>New book</h2>
-<%= form_with model: book_new, method: :post do |f| %>
+<%= form_with model: camp_new, method: :post do |f| %>
 
   <h4>Title</h4>
   <%= f.text_field :title %>

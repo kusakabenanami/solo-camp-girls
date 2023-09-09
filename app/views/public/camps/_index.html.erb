@@ -1,0 +1,26 @@
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% camps.each do |camp| %>
+      <tr>
+        <td><%= link_to(camp.user) do %>
+          <%= image_tag camp.user.get_profile_image(100,100) %>
+          <% end %>
+        </td>
+        <td><%= link_to camp.title,camp %></td>
+        <td><%= camp.body %></td>
+        <td id="favorite_buttons_<%= camp.id %>">
+          <%= render "public/favorites/btn", camp: camp %>
+        </td>
+        <td>コメント数: <%= camp.camp_comments.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

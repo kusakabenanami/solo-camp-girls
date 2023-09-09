@@ -7,38 +7,39 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-        <%# if user_signed_in? %>
+        <% if user_signed_in? %>
           <%#byebug %>
           <li>
-            <%#= link_to user_path(current_user.id),class: 'nav-link text-light' do %>
+            <%= link_to public_user_path(current_user),class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> Home
-            <%# end %>
+            <% end %>
           </li>
           <li>
-            <%#=  link_to users_path,class: 'nav-link text-light' do %>
+            <%=  link_to public_users_path,class: 'nav-link text-light' do %>
               <i class="fas fa-users"></i> Users
-            <%# end %>
+            <% end %>
           </li>
-          <li>
+          <!--<li>-->
             <%#=  link_to camps_path ,class: 'nav-link text-light' do %>
-              <i class="fas fa-book-open"></i> books
+              <!--<i class="fas fa-book-open"></i> camps-->
             <%# end %>
-          </li>
+          <!--</li>-->
           <li>
-            <%#= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
+            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
               <i class="fas fa-sign-out-alt"></i> logout
-            <%# end %>
+            <% end %>
           </li>
-        <%# else %>
+        <% else %>
+
           <li>
             <%= link_to root_path,class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> Home
             <% end %>
           </li>
           <li>
-            <%#= link_to home_about_path,class: 'nav-link text-light' do %>
+            <%= link_to homes_guest_sign_in_path,class: 'nav-link text-light' do %>
               <i class="fas fa-link"></i> About
-            <%# end %>
+            <% end %>
           </li>
           <li>
             <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
@@ -50,7 +51,7 @@
               <i class="fas fa-sign-in-alt"></i> login
             <% end %>
           </li>
-        <%# end %>
+        <% end %>
         </ul>
       </div>
     </div>
