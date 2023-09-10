@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   root "public/homes#top"
 
   post '/homes/guest_sign_in', to: 'public/homes#guest_sign_in'
 
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 
   # ユーザー側
