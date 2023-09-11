@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'camp_comments/create'
+  get 'camp_comments/destroy'
   get 'relationships/create'
   get 'relationships/destroy'
   root "public/homes#top"
@@ -8,6 +10,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
+
+   # 検索機能のルーティング
+  get "/search" => "searches#search"
 
   # ユーザー側
   devise_for :users, :controllers => {
@@ -23,35 +28,29 @@ Rails.application.routes.draw do
   }
   namespace :admin do
     get "/top" => "homes#top", as: :top
-    # resources :orders, only: [:show, :index, :update]
     resources :users, only: [:index, :show, :edit, :update]
-    # resources :genres, only: [:index, :edit, :create, :update]
-    # resources :order_details, only: [:update]
   end
 
   namespace :public do
     get "/about" => "homes#about"
-    # get "orders/confirm" => "orders#confirm"
-    # get "/orders/confirm" => "orders#confirm"
-    # post "/orders/confirm" => "orders#confirm"
     get "/users/confirm" => "users#confirm"
     patch "/users/withdrawal" => "users#withdrawal"
     get "/users/mypage" => "users#show"
     patch "/users/mypage" => "users#update"
-    # get "/orders/complete" => "orders#complete"
     get "/users/information/edit" => "users#edit"
     resources :users, only: [:show, :create, :edit, :update, :index]
-    # resources :items, only:[:show, :index]
-     resources :cart_items, only:[:index, :create, :update, :destroy] do
-      # collection do
-      #   delete "destroy_all" => "cart_items#destroy_all"
-      # end
-      end
     resources :addresses, only:[:index, :create, :destroy, :show, :update, :edit]
   end
 
-  resources :camps, only: [:new, :create, :index, :show, :edit, :destroy, :update] do
-    resource :favorites, only: [:create, :destroy]
+  scope module: :public do
+    resources :camps, only: [:new, :create, :index, :show, :edit, :destroy, :update] do
+      resource :favorites, only: [:create, :destroy]
+      resources :camp_comments, only: [:create, :destroy]
+    end
+    resources :users, only: [:index,:show,:edit,:update] do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
