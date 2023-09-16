@@ -1,5 +1,5 @@
 <div class="container">
-<h1>ユーザーコメント一覧</h1>
+<h1>ユーザー一覧</h1>
 
 <table class="table table-bordered border">
   <thead>
@@ -12,20 +12,20 @@
   </thead>
 
   <tbody>
-    <% @camps.each do |camp| %>
+    <% @users.each do |user| %>
       <tr>
-        <td><%= link_to camp.created_at, admin_camp_path(camp.id) %></td>
-        <td><%= camp.name %></td>
-        <td> <% camp.camp_details.each do |camp_detail| %>
-            <% @quantity += order_detail.quantity %>
-          <% end %>
-          <%= @quantity %>
+        <td><%= link_to user.created_at, admin_user_path(user.id) %></td>
+        <td><%#= user.name %></td>
+        <td> <%# user.user_details.each do |user_detail| %>
+            <%# @quantity += user_detail.quantity %>
+          <%# end %>
+          <%#= @quantity %>
         </td>
-        <td><%= order.status_i18n %></td>
+        <td><%#= user.status_i18n %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 
 </table>
-<%= paginate @orders %>
+<%#= paginate @users %>
 </div>
