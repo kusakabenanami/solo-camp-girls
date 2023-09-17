@@ -1,5 +1,5 @@
 <div class="container">
-<h1>ユーザー一覧</h1>
+<h1>ユーザーコメント一覧</h1>
 
 <table class="table table-bordered border">
   <thead>
@@ -12,16 +12,18 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <%# @users.each do |user| %>
+    <% @camp_comments.each do |camp_comment| %>
       <tr>
-        <td><%= link_to user.created_at, admin_user_path(user.id) %></td>
-        <td><%#= user.name %></td>
-        <td> <%# user.user_details.each do |user_detail| %>
-            <%# @quantity += user_detail.quantity %>
-          <%# end %>
-          <%#= @quantity %>
-        </td>
-        <td><%#= user.status_i18n %></td>
+        <td><%= link_to camp_comment.created_at.strftime('%Y年%m月%d日 %H:%M'), admin_user_path(camp_comment.user) %></td>
+        <td><%= camp_comment.user.name %></td>
+        <td><%= camp_comment.comment %></td>
+        <td><%# if @user.is_withdrawal == false %>
+        <!--    <td class="text-success font-weight-bold">有効</td>-->
+          <%# else %>
+        <!--    <td class="text-secondary">退会</td>-->
+          <%# end %></td>
+      <% end %>
       </tr>
     <%# end %>
   </tbody>

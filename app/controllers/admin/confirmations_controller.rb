@@ -1,23 +1,24 @@
 # frozen_string_literal: true
 
 class Admin::ConfirmationsController < Devise::ConfirmationsController
+
   def index
-    @customers = Customer.page(params[:page])
+    @users = User.page(params[:page])
   end
 
   def show
-    @customer = Customer.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
-    @customer = Customer.find(params[:id])
-    if @customer.update(customer_params)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
       flash[:notice] = "会員情報を変更しました"
-      redirect_to admin_customer_path
+      redirect_to admin_user_path
     else
       render :edit
     end

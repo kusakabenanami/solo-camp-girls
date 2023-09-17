@@ -12,18 +12,18 @@
           </tr>
         </thead>
         <tbody style="margin-top: 5px; margin-bottom: 5px;">
-          <% @customers.each do |customer| %>
+          <% @users.each do |user| %>
           <tr>
-            <td><%= customer.id %></td>
+            <td><%= user.id %></td>
 
-            <td><%= link_to admin_customer_path(customer) do %>
-                 <%= customer.family_name %><%= customer.first_name %>
+            <td><%= link_to admin_user_path(customer) do %>
+                 <%= user.name %>
                 <% end %>
             </td>
 
-            <td><%= customer.email %></td>
+            <td><%= user.email %></td>
             <td>
-              <% if customer.is_withdrawal == false %>
+              <% if user.is_withdrawal == false %>
                 <p class="text-success"><strong>有効</strong></p>
               <% else %>
                 <p class="text-secondary"><strong>退会済み</strong></p>
@@ -34,7 +34,7 @@
         </tbody>
       </table>
       <div class="d-flex justify-content-center text-center">
-        <%= paginate @customers %>
+        <%= paginate @users %>
       </div>
     </div>
   </div><!-- row -->

@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <h2 class="mb-4">会員登録情報</h2>
 
-  <%= form_with model: @customer, url: admin_customer_path, method: :patch, local: true do |f| %>
+  <%= form_with model: @user, url: admin_user_path, method: :patch, local: true do |f| %>
     <div class="row">
       <tr>
         <label class="col-lg-3">会員ID</label>
@@ -21,15 +21,15 @@
       </div>
     </div><br>
 
-    <div class="row">
-      <label class="col-lg-3">フリガナ</label>
-      <div class="col-lg-3">
-        <%= f.text_field :family_kana_name %>
-      </div>
-      <div class="col-lg-3">
-        <%= f.text_field :first_kana_name %>
-      </div>
-    </div><br>
+    <!--<div class="row">-->
+    <!--  <label class="col-lg-3">フリガナ</label>-->
+    <!--  <div class="col-lg-3">-->
+        <%#= f.text_field :family_kana_name %>
+    <!--  </div>-->
+    <!--  <div class="col-lg-3">-->
+        <%#= f.text_field :first_kana_name %>
+    <!--  </div>-->
+    <!--</div><br>-->
 
     <div class="row">
       <label class="col-lg-3">郵便番号（ハイフンなし）</label>
