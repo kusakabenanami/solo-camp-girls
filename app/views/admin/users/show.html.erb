@@ -1,4 +1,4 @@
-<h4><%= @user.name %>さんの会員詳細</h4>
+<h4><%= @user.name %>さんのユーザー詳細</h4>
 
 <div class="row mt-4">
   <div class="col-sm-8">
@@ -8,7 +8,7 @@
     <table class="table table-borderless">
       <tbody>
         <tr>
-          <td>会員ID</td>
+          <td>ユーザーID</td>
           <td><%= @user.id %></td>
         </tr>
         <tr>
@@ -20,7 +20,7 @@
           <td><%= @user.email %></td>
         </tr>
         <tr>
-          <td>会員ステータス</td>
+          <td>退会ステータス</td>
           <% if @user.is_withdrawal == false %>
             <td class="text-success font-weight-bold">有効</td>
           <% else %>

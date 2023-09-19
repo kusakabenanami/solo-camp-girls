@@ -1,24 +1,24 @@
 <div class="container mt-5">
-  <h2 class="mb-4">会員登録情報</h2>
+  <h2 class="mb-4">ユーザー登録情報</h2>
 
   <%= form_with model: @user, url: admin_user_path, method: :patch, local: true do |f| %>
     <div class="row">
       <tr>
-        <label class="col-lg-3">会員ID</label>
+        <label class="col-lg-3">ユーザーID</label>
         <div class="col-lg-3">
-          <%= @customer.id %>
+          <%= @user.id %>
         </div>
       </tr>
     </div><br>
 
     <div class="row">
-      <label class="col-lg-3">名前</label>
+      <label class="col-lg-3">ユーザー名</label>
       <div class="col-lg-3">
-        <%= f.text_field :family_name, autoforcus: true %>
+        <%= f.text_field :user_name, autoforcus: true %>
       </div>
-      <div class="col-lg-3">
-        <%= f.text_field :first_name %>
-      </div>
+      <!--<div class="col-lg-3">-->
+      <!--  <%#= f.text_field :first_name %>-->
+      <!--</div>-->
     </div><br>
 
     <!--<div class="row">-->
@@ -31,26 +31,26 @@
     <!--  </div>-->
     <!--</div><br>-->
 
-    <div class="row">
-      <label class="col-lg-3">郵便番号（ハイフンなし）</label>
-      <div class="col-lg-3">
-        <%= f.text_field :post_code %>
-      </div>
-    </div><br>
+    <!--<div class="row">-->
+    <!--  <label class="col-lg-3">郵便番号（ハイフンなし）</label>-->
+    <!--  <div class="col-lg-3">-->
+    <!--    <%#= f.text_field :post_code %>-->
+    <!--  </div>-->
+    <!--</div><br>-->
 
-    <div class="row">
-      <label class="col-lg-3">住所</label>
-      <div class="col-lg-3">
-        <%= f.text_field :address %>
-      </div>
-    </div><br>
+    <!--<div class="row">-->
+    <!--  <label class="col-lg-3">住所</label>-->
+    <!--  <div class="col-lg-3">-->
+    <!--    <%#= f.text_field :address %>-->
+    <!--  </div>-->
+    <!--</div><br>-->
 
-    <div class="row">
-      <label class="col-lg-3">電話番号（ハイフンなし）</label>
-      <div class="col-lg-3">
-        <%= f.text_field :phone_number %>
-      </div>
-    </div><br>
+    <!--<div class="row">-->
+    <!--  <label class="col-lg-3">電話番号（ハイフンなし）</label>-->
+    <!--  <div class="col-lg-3">-->
+    <!--    <%#= f.text_field :phone_number %>-->
+    <!--  </div>-->
+    <!--</div><br>-->
 
     <div class="row">
       <label class="col-lg-3">メールアドレス</label>

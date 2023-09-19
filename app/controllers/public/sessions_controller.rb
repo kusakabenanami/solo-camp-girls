@@ -7,6 +7,28 @@ class Public::SessionsController < Devise::SessionsController
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
+
+
+  private
+
+  def after_sign_in_path_for(resource)
+    root_path
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
+  def discrimination_customer
+    @customer = Customer.find_by(email: params[:user][:email])
+    if @customer
+      if @customer.valid_password?(params[:user][:password]) && @user.is_withdrawal == true
+        flash[:notice] = "既に退会済みのため、再登録をお願い致します。"
+        redirect_to new_user_registration_path
+      end
+    end
+  end
+end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -30,4 +52,3 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-end

@@ -12,7 +12,7 @@
         <td><%= camp_comment.comment %></td>
         <td>
           <% if camp_comment.user == current_user %>
-            <%= link_to "Destroy", camp_camp_comment_path(camp, camp_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
+            <%= link_to "削除", camp_camp_comment_path(camp, camp_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
           <% end %>
         </td>
       </tr>
