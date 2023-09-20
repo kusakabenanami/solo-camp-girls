@@ -1,11 +1,9 @@
 <% if camp.favorited_by?(current_user) %>
   <%= link_to camp_favorites_path(camp), method: :delete, remote: true, style: "color: red;" do %>
-    <i class="fas fa-heart" aria-hidden="true"></i>
-    <%= camp.favorites.count %>
+    <i class="fas fa-heart" ></i>
   <% end %>
 <% else %>
   <%= link_to camp_favorites_path(camp), method: :post, remote: true do %>
-    <i class="fas fa-heart" aria-hidden="true"></i>
-    <%= camp.favorites.count %>
+    <i class="fas fa-heart" ></i>
   <% end %>
 <% end %>

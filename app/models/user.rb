@@ -55,11 +55,8 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-
-　#　いいね機能
-  def favorited_by?(user)
-    favorites.exists?(user_id: user.id)
-  end
+  
+  
 
   # 検索方法分岐
   def self.looks(search, word)
