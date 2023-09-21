@@ -1,4 +1,4 @@
-class CampCommentsController < ApplicationController
+class Public::CampCommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
