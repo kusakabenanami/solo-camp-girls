@@ -22,6 +22,7 @@ class Admin::ConfirmationsController < Devise::ConfirmationsController
     else
       render :edit
     end
+  end
   # GET /resource/confirmation/new
   # def new
   #   super
