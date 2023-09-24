@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+
+ /* application.scss */
+
+/* Bootstrapのインポート（必要に応じてバージョンを変更） */
+@import "bootstrap";
+
+/* カスタムスタイル */
+body {
+  background-color: #f7f7f7;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+
+main {
+  text-align: center;
+  padding: 60px 0;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+.h5 {
+  font-size: 18px;
+  color: #666;
+}
+
+.btn-wrapper {
+  margin-top: 20px;
+}
+
+.btn {
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.notice {
+  text-align: center;
+  font-size: 16px;
+  color: #d9534f; /* Bootstrapの赤色 */
+}
