@@ -1,3 +1,61 @@
 @use '~bootstrap/scss/bootstrap';
 
 @use '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+@import "bootstrap/scss/bootstrap";
+
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  background:linear-gradient(#56C500, #fff);
+  color: #592e15;
+}
+
+.table {
+  color: #592e15;
+}
+
+.pagination>li {
+  vertical-align: baseline;
+  margin: 0 6px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination>li>a {
+  border: none;
+  color: #343a40;
+  margin: 0 7px;
+}
+
+.pagination>.current {
+  background: rgba(147,201,255,0.4);
+  border-radius: 15px;
+}
+
+.pagination>li:hover {
+  border-radius: 50%;
+  background-color: rgba(147,201,255,0.7);
+  border: red;
+}
+
+.page-link {
+  background-color: #f5f2eb;
+}
+
+
+a {
+  color: #592e15;
+}
+
+a:hover {
+  color:  #592e15;
+}
