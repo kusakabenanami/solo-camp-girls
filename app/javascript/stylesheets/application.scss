@@ -16,6 +16,7 @@ body {
   font-family: 'Zen Maru Gothic', sans-serif;
   background:linear-gradient(#56C500, #fff);
   color: #592e15;
+  background-repeat: no-repeat;
 }
 
 .table {
@@ -58,4 +59,13 @@ a {
 
 a:hover {
   color:  #592e15;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f9fa; /* フッターの背景色を設定 */
+  border-top: 1px solid #dee2e6; /* フッターの上部境界線を設定 */
 }
