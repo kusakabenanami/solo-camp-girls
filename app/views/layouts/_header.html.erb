@@ -28,6 +28,11 @@
           <!--管理者側のヘッダー-->
           <% elsif admin_signed_in? %>
             <li>
+            <%= link_to admin_top_path(current_user),class: 'nav-link text-light' do %>
+              <i class="fas fa-home"></i> Top
+            <% end %>
+            </li>
+            <li>
               <%=  link_to admin_users_path,class: 'nav-link text-light' do %>
                 <i class="fas fa-users"></i> Users
               <% end %>
@@ -56,15 +61,12 @@
             <% end %>
           </li>
         <% end %>
-
-
-
         </ul>
       </div>
     </div>
   </nav>
 
   <div style="text-align: center;">
-  <%#= render 'searches/search' %>
+  <%#= render 'search' %>
   </div>
 </header>

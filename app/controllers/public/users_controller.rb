@@ -19,7 +19,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = "Book was successfully created."
+      flash[:notice] = "正常に作成されました"
       redirect_to user_path(@user.id)
     else
       @users = User.all

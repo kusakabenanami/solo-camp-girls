@@ -23,7 +23,7 @@
 
             <td><%= user.email %></td>
             <td>
-              <% if user.is_withdrawal == false %>
+              <% if user.is_withdrawal == true %>
                 <p class="text-success"><strong>有効</strong></p>
               <% else %>
                 <p class="text-secondary"><strong>退会済み</strong></p>

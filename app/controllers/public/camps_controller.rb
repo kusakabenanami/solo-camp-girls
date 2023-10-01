@@ -9,7 +9,7 @@ class Public::CampsController < ApplicationController
       @camp = Camp.new(camp_params)
       @camp.user_id = current_user.id
     if @camp.save
-      redirect_to camp_path(@camp.id), notice: "You have created book successfully."
+      redirect_to camp_path(@camp.id), notice: "正常に作成されました"
     else
       @camps = Camp.all
       render :index
@@ -34,7 +34,7 @@ class Public::CampsController < ApplicationController
   def update
     @camp = Camp.find(params[:id])
     if @camp.update(camp_params)
-      flash[:notice] = "You have created book successfully."
+      flash[:notice] = "正常に変更されました"
       redirect_to camp_path(@camp.id)
     else
       @@camps = Camp.all

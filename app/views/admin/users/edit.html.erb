@@ -12,52 +12,38 @@
     </div><br>
 
     <div class="row">
-      <label class="col-lg-3">ユーザー名</label>
-      <div class="col-lg-3">
-        <%= f.text_field :user_name, autoforcus: true %>
-      </div>
-      <!--<div class="col-lg-3">-->
-      <!--  <%#= f.text_field :first_name %>-->
-      <!--</div>-->
+      <tr>
+        <label class="col-lg-3">ユーザー名</label>
+        <div class="col-lg-3">
+          <%= @user.name %>
+        </div>
+      </tr>
     </div><br>
-
-    <!--<div class="row">-->
-    <!--  <label class="col-lg-3">フリガナ</label>-->
-    <!--  <div class="col-lg-3">-->
-        <%#= f.text_field :family_kana_name %>
-    <!--  </div>-->
-    <!--  <div class="col-lg-3">-->
-        <%#= f.text_field :first_kana_name %>
-    <!--  </div>-->
-    <!--</div><br>-->
-
-    <!--<div class="row">-->
-    <!--  <label class="col-lg-3">郵便番号（ハイフンなし）</label>-->
-    <!--  <div class="col-lg-3">-->
-    <!--    <%#= f.text_field :post_code %>-->
-    <!--  </div>-->
-    <!--</div><br>-->
-
-    <!--<div class="row">-->
-    <!--  <label class="col-lg-3">住所</label>-->
-    <!--  <div class="col-lg-3">-->
-    <!--    <%#= f.text_field :address %>-->
-    <!--  </div>-->
-    <!--</div><br>-->
-
-    <!--<div class="row">-->
-    <!--  <label class="col-lg-3">電話番号（ハイフンなし）</label>-->
-    <!--  <div class="col-lg-3">-->
-    <!--    <%#= f.text_field :phone_number %>-->
-    <!--  </div>-->
-    <!--</div><br>-->
 
     <div class="row">
-      <label class="col-lg-3">メールアドレス</label>
-      <div class="col-lg-3">
-        <%= f.text_field :email %>
-      </div>
+      <tr>
+        <label class="col-lg-3">メールアドレス</label>
+        <div class="col-lg-3">
+          <%= @user.email %>
+        </div>
+      </tr>
     </div><br>
+
+    <div class="row">
+      <div class="col-lg-3">
+        <label>退会ステータス</label>
+      </div>
+      <div class="col-lg-9">
+        <div class="form-check form-check-inline">
+          <%= radio_button_tag 'user[is_withdrawal]', 'true', !@user.is_withdrawal, class: 'form-check-input' %>
+          <%= label_tag 'withdrawal_status_active', '有効', class: 'form-check-label' %>
+        </div>
+        <div class="form-check form-check-inline">
+          <%= radio_button_tag 'user[is_withdrawal]', 'false', @user.is_withdrawal, class: 'form-check-input' %>
+          <%= label_tag 'withdrawal_status_withdrawn', '退会', class: 'form-check-label' %>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-lg-12">
