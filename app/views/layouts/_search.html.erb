@@ -1,10 +1,10 @@
 <% if admin_signed_in? %>
-  <%= form_with url: admin_camp_comment_path, local: true, method: :get, class: "d-flex" do |f| %>
+  <%= form_with url: admin_top_path, local: true, method: :get, class: "d-flex" do |f| %>
     <%= f.text_field :search, placeholder: "--キーワードを入力--", class:"text-center" %>
     <%= f.submit "検索",class: "btn text-white form-control", style: "background-color: #a0522d;" %>
   <% end %>
 <% else %>
-  <%= form_with url: public_camp_comment_path, local: true, method: :get, class: "d-flex" do |f| %>
+  <%= form_with url: public_users_mypage_path, local: true, method: :get, class: "d-flex" do |f| %>
     <%= f.text_field :search, placeholder: "--キーワードを入力--", class:"text-center" %>
     <%= f.submit "検索",class: "btn text-white form-control", style: "background-color: #a0522d;" %>
   <% end %>
