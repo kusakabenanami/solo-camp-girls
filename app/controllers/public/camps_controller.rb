@@ -59,7 +59,7 @@ class Public::CampsController < ApplicationController
   end
 
   def camp_params
-    params.require(:camp).permit(:title, :body)
+    params.require(:camp).permit(:title, :body, :star)
   end
 
 end

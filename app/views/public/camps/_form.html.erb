@@ -7,6 +7,36 @@
     <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control camp_body' %>
   </div>
+
+  <!--starについての記述-->
+  <% if camp.id.nil? %>
+    <div class="form-group" id="star">
+      <%= f.label :star %>
+      <%= f.hidden_field :star, id: :review_star, class: 'form-control' %>
+      <div id="post_raty"></div>
+    </div>
+    <script>
+      $(document).on('turbolinks:load', function() {
+        let elem = document.querySelector('#post_raty');
+        if (elem == null) return;
+
+        elem.innerHTML = ""
+        let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'camp[star]',
+        };
+        raty(elem, opt);
+      });
+    </script>
+  <% else %>
+    <div class="form-group">
+      <%= f.label :star %>
+      <%= render "static_rate", camp: @camp %>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= f.submit class: 'btn btn-success' %>
   </div>

@@ -7,7 +7,6 @@
       <th>投稿日時</th>
       <th>ユーザー名</th>
       <th>コメント</th>
-      <th>退会ステータス</th>
     </tr>
   </thead>
 
@@ -18,13 +17,8 @@
         <td><%= link_to camp_comment.created_at.strftime('%Y年%m月%d日 %H:%M'), admin_user_path(camp_comment.user) %></td>
         <td><%= camp_comment.user.name %></td>
         <td><%= camp_comment.comment %></td>
-        <td><%# if @user.is_withdrawal == false %>
-        <!--    <td class="text-success font-weight-bold">有効</td>-->
-          <%# else %>
-        <!--    <td class="text-secondary">退会</td>-->
-          <%# end %></td>
-      <% end %>
       </tr>
+    <% end %>
     <%# end %>
   </tbody>
 

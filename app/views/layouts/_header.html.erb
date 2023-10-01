@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <%#byebug %>
+        <!--ログイン後のヘッダー-->
           <li>
             <%= link_to public_user_path(current_user),class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> Home
@@ -19,28 +19,32 @@
               <i class="fas fa-users"></i> Users
             <% end %>
           </li>
-          <!--<li>-->
-            <%#=  link_to camps_path ,class: 'nav-link text-light' do %>
-              <!--<i class="fas fa-book-open"></i> camps-->
-            <%# end %>
-          <!--</li>-->
           <li>
             <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
               <i class="fas fa-sign-out-alt"></i> logout
             <% end %>
           </li>
-        <% else %>
 
+          <!--管理者側のヘッダー-->
+          <% elsif admin_signed_in? %>
+            <li>
+              <%=  link_to admin_users_path,class: 'nav-link text-light' do %>
+                <i class="fas fa-users"></i> Users
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-light' do %>
+                <i class="fas fa-sign-out-alt"></i> logout
+              <% end %>
+            </li>
+          <% else %>
+
+          <!--ログアウト後のヘッダー-->
           <li>
             <%= link_to root_path,class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> Home
             <% end %>
           </li>
-          <!--<li>-->
-          <!--  <%#= link_to homes_guest_sign_in_path,class: 'nav-link text-light' do %>-->
-          <!--    <i class="fas fa-link"></i> guest-->
-          <!--  <%# end %>-->
-          <!--</li>-->
           <li>
             <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
               <i class="fas fa-user-plus"></i> sign up
@@ -52,6 +56,9 @@
             <% end %>
           </li>
         <% end %>
+
+
+
         </ul>
       </div>
     </div>
@@ -60,5 +67,4 @@
   <div style="text-align: center;">
   <%#= render 'searches/search' %>
   </div>
-
 </header>
