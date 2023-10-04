@@ -7,24 +7,23 @@
       <th>投稿日時</th>
       <th>ユーザー名</th>
       <th>コメント</th>
-      <th>削除<th>
+      <th>削除</th>
     </tr>
   </thead>
 
   <tbody>
-    <%# @users.each do |user| %>
     <% @camp_comments.each do |camp_comment| %>
       <tr>
         <td><%= link_to camp_comment.created_at.strftime('%Y年%m月%d日 %H:%M'), admin_user_path(camp_comment.user) %></td>
         <td><%= camp_comment.user.name %></td>
         <td><%= camp_comment.comment %></td>
         <td>
-        <%= link_to "削除", admin_comment_path(camp_comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger btn-sm" %>
+        <%= link_to "削除", admin_top_path(camp_comment.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
       </td>
       </tr>
     <% end %>
   </tbody>
 
 </table>
-<%#= paginate @users %>
+<%#= paginate @camp_comment %>
 </div>
