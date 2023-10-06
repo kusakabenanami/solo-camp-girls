@@ -21,13 +21,23 @@
               <% if @camp.user == current_user %>
                 <div class="btn-group">
                   <%= link_to "編集", edit_camp_path(@camp), class: "btn btn-success" %>
-                  <%= link_to "削除", camp_path(@camp), method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn btn-danger" %>
+                  <%= link_to "削除", @camp, method: :delete, data: { confirm: "本当に消しますか？" }, class: "btn btn-danger" %>
                 </div>
               <% end %>
             </td>
           </tr>
         </tbody>
-      </table>
+      </table
+      <!-- 投稿フォームを追加 -->
+              <%= form_with model:@camp_comment,local:true do |f| %>
+                <div class="form-group">
+                  <%= f.label "コメント" %>
+                  <%= f.text_area :body, class: 'form-control camp_body' %>
+                </div>
+                <div class="form-group">
+                  <%= f.submit "コメント投稿", class: "btn btn-primary" %>
+                </div>
+              <% end %>
     </div>
   </div>
 </div>
