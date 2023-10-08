@@ -27,17 +27,25 @@
             </td>
           </tr>
         </tbody>
-      </table
-      <!-- 投稿フォームを追加 -->
-              <%= form_with model:@camp_comment,local:true do |f| %>
-                <div class="form-group">
-                  <%= f.label "コメント" %>
-                  <%= f.text_area :body, class: 'form-control camp_body' %>
-                </div>
-                <div class="form-group">
-                  <%= f.submit "コメント投稿", class: "btn btn-primary" %>
-                </div>
+      </table>
+
+      <!--コメント投稿フォーム-->
+            <div id = "comment-form">
+              <%= render 'public/camp_comments/form', camp: @camp ,camp_comment: @camp_comment %>
+            </div>
+      <!--コメント表示-->
+            <table>
+            <tbody>
+              <% @camp.camp_comments.each do |camp_comment| %>
+              <tr>
+                <td>
+                  <p><%= camp_comment.comment %></p>
+                  <p>投稿者: <%= camp_comment.user.name %></p>
+                </td>
+              </tr>
               <% end %>
+            </tbody>
+          </table>
     </div>
   </div>
 </div>

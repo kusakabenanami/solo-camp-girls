@@ -6,8 +6,7 @@ class Public::CampCommentsController < ApplicationController
     @camp_comment = current_user.camp_comments.new(camp_comment_params)
     @camp_comment.camp_id = @camp.id
     @camp_comment.save
-    @camp_comment_new = CampComment.new
-    render 'create.js.erb'
+    redirect_to camp_path(@camp)
   end
 
   def destroy

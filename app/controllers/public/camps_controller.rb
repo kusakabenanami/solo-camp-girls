@@ -29,6 +29,7 @@ class Public::CampsController < ApplicationController
     @camp = Camp.find(params[:id])
     @camp_new = Camp.new
     @user = @camp.user
+    @camp_comment = CampComment.new
   end
 
   def update
