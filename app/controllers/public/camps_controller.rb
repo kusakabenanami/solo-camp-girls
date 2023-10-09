@@ -46,7 +46,7 @@ class Public::CampsController < ApplicationController
   def destroy
     camp = Camp.find(params[:id])
     camp.destroy
-    redirect_to camps_path
+    redirect_to public_users_mypage_path
   end
 
   # 投稿データのストロングパラメータ

@@ -61,11 +61,44 @@ a:hover {
   color:  #592e15;
 }
 
+.container {
+ width: auto;
+ padding: 0 15px;
+}
+
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
   width: 100%;
   background-color: #f8f9fa; /* フッターの背景色を設定 */
   border-top: 1px solid #dee2e6; /* フッターの上部境界線を設定 */
+}
+
+.pagination>li {
+  vertical-align: baseline;
+  margin: 0 6px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination>li>a {
+  border: none;
+  color: #343a40;
+  margin: 0 7px;
+}
+
+.pagination>.current {
+  background: rgba(147,201,255,0.4);
+  border-radius: 15px;
+}
+
+.pagination>li:hover {
+  border-radius: 50%;
+  background-color: rgba(147,201,255,0.7);
+  border: red;
+}
+
+.page-link {
+  background-color: #f5f2eb;
 }
