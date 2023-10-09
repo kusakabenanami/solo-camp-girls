@@ -64,14 +64,16 @@ a:hover {
 .container {
  width: auto;
  padding: 0 15px;
+ height: 700px;
 }
 
 footer {
-  position: absolute;/*←絶対位置*/
-  bottom: 0; /*下に固定*/
-  width: 100%;
-  background-color: #f8f9fa; /* フッターの背景色を設定 */
-  border-top: 1px solid #dee2e6; /* フッターの上部境界線を設定 */
+  //margin-top: auto;
+  //position: absolute;/*←絶対位置*/
+  //bottom: 0; /*下に固定*/
+ // width: 100%;
+  //background-color: #f8f9fa; /* フッターの背景色を設定 */
+  //border-top: 1px solid #dee2e6; /* フッターの上部境界線を設定 */
 }
 
 .pagination>li {
