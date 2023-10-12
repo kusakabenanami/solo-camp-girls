@@ -3,7 +3,6 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = current_user
-    #@camps = @user.camps
     @camp = Camp.new
 
     search_term = params[:search].to_s.strip # .to_s で nil を空文字列に変換し、.strip で前後の空白を削除
